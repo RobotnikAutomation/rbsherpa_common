@@ -30,23 +30,23 @@
     </xacro:if>
 
     <!-- BASE_LINK -->
-    <link name="${prefix}base_link">   x:1.025 y:0.75 z:0.3
+    <link name="${prefix}base_link">
       <inertial>
         <mass value="25.0" />
-        <origin xyz="0 0 0.35" />
+        <origin xyz="0 0 0.376" />
         <!--inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" /-->
-        <solid_cuboid_inertia  w="1.025" h="0.75" d="0.3" m="25"/>
+        <solid_cuboid_inertia  w="1.265" h="0.812" d="0.465" m="25"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <xacro:if value="${hq}">
           <geometry>
-            <mesh filename="package://rbsherpa_description/meshes/bases/rbsherpa_xl_chassis.stl"/>
+            <mesh filename="package://rbsherpa_description/meshes/bases/rbsherpa_xl_base.stl"/>
           </geometry>
         </xacro:if>
         <xacro:unless value="${hq}">
           <geometry>
-            <mesh filename="package://rbsherpa_description/meshes/bases/rbsherpa_xl_chassis.stl"/>
+            <mesh filename="package://rbsherpa_description/meshes/bases/rbsherpa_xl_base.stl"/>
           </geometry>
         </xacro:unless>
         <material name="darkgrey">
@@ -56,7 +56,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0 " />
         <geometry>
-          <mesh filename="package://rbsherpa_description/meshes/bases/rbsherpa_xl_chassis.stl"/>
+          <mesh filename="package://rbsherpa_description/meshes/bases/rbsherpa_xl_base.stl"/>
         </geometry>
       </collision>
     </link>

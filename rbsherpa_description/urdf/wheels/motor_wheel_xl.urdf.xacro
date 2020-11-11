@@ -3,9 +3,9 @@
 
   <xacro:property name="M_PI" value="3.1415926535897931" />
   <!-- Wheels -->
-  <xacro:property name="wheel_radius" value="0.170" />
-  <xacro:property name="wheel_height" value="0.170" />
-  <xacro:property name="wheel_mass" value="5.0" />
+  <xacro:property name="wheel_radius" value="0.17" />
+  <xacro:property name="wheel_width" value="0.14" />
+  <xacro:property name="wheel_mass" value="4.0" />
   <!-- in kg-->
 
   <xacro:property name="steer_joint_damping" value="2.0" />
@@ -53,46 +53,47 @@
       <visual>
         <!-- HIGH RESOLUTION WHEELS -->
         <xacro:if value="${hq}">
-          <origin xyz="0 0 0.205" rpy="0 0 3.1416" />
+          <origin xyz="0 0 0.27952" rpy="0 0 0" />
           <geometry>
             <xacro:if value="${reflect}">
-              <mesh filename="package://rbsherpa_description/meshes/wheels/L.stl" />
+              <mesh filename="package://rbsherpa_description/meshes/wheels/hub_rbsherpa_xl.stl" />
             </xacro:if>
             <xacro:unless value="${reflect}">
-              <mesh filename="package://rbsherpa_description/meshes/wheels/L.stl" />
+              <mesh filename="package://rbsherpa_description/meshes/wheels/hub_rbsherpa_xl.stl" />
             </xacro:unless>
           </geometry>
         </xacro:if>
         <!-- LOW RESOLUTION WHEELS -->
         <xacro:unless value="${hq}">
-          <origin xyz="0 0 0.205" rpy="0 0 3.1416" />
+          <origin xyz="0 0 0.27952" rpy="0 0 0" />
           <geometry>
             <xacro:if value="${reflect}">
-              <mesh filename="package://rbsherpa_description/meshes/wheels/L.stl" />
+              <mesh filename="package://rbsherpa_description/meshes/wheels/hub_rbsherpa_xl.dae" />
             </xacro:if>
             <xacro:unless value="${reflect}">
-              <mesh filename="package://rbsherpa_description/meshes/wheels/L.stl" />
+              <mesh filename="package://rbsherpa_description/meshes/wheels/hub_rbsherpa_xl.dae" />
             </xacro:unless>
           </geometry>
         </xacro:unless>
       </visual>
 
       <collision>
-        <origin xyz="0 0 0.205" rpy="0 0 3.1416" />
+        <origin xyz="0 0 0.27952" rpy="0 0 0" />
         <geometry>
           <xacro:if value="${reflect}">
-            <mesh filename="package://rbsherpa_description/meshes/wheels/L.stl" />
+            <mesh filename="package://rbsherpa_description/meshes/wheels/hub_rbsherpa_xl.dae" />
           </xacro:if>
           <xacro:unless value="${reflect}">
-            <mesh filename="package://rbsherpa_description/meshes/wheels/L.stl" />
+            <mesh filename="package://rbsherpa_description/meshes/wheels/hub_rbsherpa_xl.dae" />
           </xacro:unless>
         </geometry>
       </collision>
-      
+
       <inertial>
-        <mass value="10" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
+        <mass value="4" />
+        <origin xyz="0 0 0.12" rpy="0 0 0"/>
+        <!--inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" /-->
+        <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_width}" />
       </inertial>
     </link>
 
@@ -136,10 +137,10 @@
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
             <xacro:if value="${reflect}">
-              <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_xl.stl" />
+              <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_rbsherpa_xl.stl" />
             </xacro:if>
             <xacro:unless value="${reflect}">
-              <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_xl.stl" />
+              <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_rbsherpa_xl.stl" />
             </xacro:unless>
           </geometry>
         </xacro:if>
@@ -148,10 +149,10 @@
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
             <xacro:if value="${reflect}">
-              <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_xl.dae" />
+              <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_rbsherpa_xl.dae" />
             </xacro:if>
             <xacro:unless value="${reflect}">
-              <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_xl.dae" />
+              <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_rbsherpa_xl.dae" />
             </xacro:unless>
           </geometry>
         </xacro:unless>
@@ -161,10 +162,10 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <xacro:if value="${reflect}">
-            <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_xl.stl" />
+            <mesh filename="package://rbsherpa_description/meshes/wheels/collision_wheel_rbsherpa_xl.dae" />
           </xacro:if>
           <xacro:unless value="${reflect}">
-            <mesh filename="package://rbsherpa_description/meshes/wheels/wheel_xl.stl" />
+            <mesh filename="package://rbsherpa_description/meshes/wheels/collision_wheel_rbsherpa_xl.dae" />
           </xacro:unless>
         </geometry>
       </collision>
@@ -172,7 +173,7 @@
       <inertial>
         <mass value="${wheel_mass}" />
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0"/>
-        <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_height}" />
+        <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_width}" />
       </inertial>
     </link>
 

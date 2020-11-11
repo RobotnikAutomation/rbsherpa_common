@@ -26,14 +26,14 @@
     <xacro:property name="deg2rad" value="0.01745329251"/>
 
     <!-- Wheel parameters -->
-    <xacro:property name="wheel_offset_x" value="0.4655" />    <!-- x,y,z in translation from base_link to the center of the wheel -->
-    <xacro:property name="wheel_offset_y" value="0.294" />
+    <xacro:property name="wheel_offset_x" value="0.4795" />    <!-- x,y,z in translation from base_link to the center of the wheel -->
+    <xacro:property name="wheel_offset_y" value="0.2925" />
     <xacro:property name="wheel_offset_z" value="0.0" />
 
-    <!-- Wheel parameters -->
-    <xacro:property name="G2_offset_x" value="0.17286" />
+    <!-- Bi-arm support parameters -->
+    <xacro:property name="G2_offset_x" value="0.207" />
     <xacro:property name="G2_offset_y" value="0.0" />
-    <xacro:property name="G2_offset_z" value="0.50288" />
+    <xacro:property name="G2_offset_z" value="0.57188" />
 
     <!-- Flag to select the high or low quality model -->
     <xacro:property name="hq" value="true" />
@@ -84,7 +84,7 @@
 
         <!-- IMU -->
         <!--xacro:sensor_imu_hector prefix="${prefix}imu" parent="${prefix}base_link">
-            <origin xyz="0.3 0.3 0.250" rpy="0 0 0"/>
+            <origin xyz="0.3 0.0 0.3" rpy="0 0 0"/>
         </xacro:sensor_imu_hector-->
         <!-- GPS -->
         <!--xacro:sensor_gps prefix="${prefix}gps" parent="${prefix}base_link">
